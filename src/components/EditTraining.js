@@ -51,7 +51,7 @@ function EditTraining(props) {
         </IconButton>
       </Tooltip>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Edit Training ({props.params.data.customer.firstname} {props.params.data.customer.lastname})</DialogTitle>
+        <DialogTitle>Edit Training</DialogTitle>
         <DialogContent>
           <TextField
             margin="dense"

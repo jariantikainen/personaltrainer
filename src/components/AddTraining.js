@@ -55,6 +55,7 @@ function AddTraining(props) {
         <DialogContent>
           <TextField
             margin="dense"
+            type="datetime-local"
             label="Date"
             name="date"
             value={training.date}
