@@ -16,7 +16,7 @@ function AddTraining(props) {
     date: '',
     activity: '',
     duration: '',
-    customer: ''
+    customer: props.customer
   })
 
   const handleClickOpen = () => {
@@ -35,7 +35,8 @@ function AddTraining(props) {
   };
 
   const handleSave = () => {
-    props.addTraining(props.params.value, training);
+    console.log(training);
+    props.addTraining(training);
     handleClose();
   };
 

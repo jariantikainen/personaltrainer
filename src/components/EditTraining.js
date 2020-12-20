@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import EditIcon from '@material-ui/icons/Edit';
-import * as moment from 'moment';
+import moment from 'moment';
 
 function EditTraining(props) {
   const [open, setOpen] = React.useState(false);

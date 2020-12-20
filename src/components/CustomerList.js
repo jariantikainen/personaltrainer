@@ -66,17 +66,13 @@ function CustomerList() {
   }
 
   const addTraining = (newTraining) => {
+    console.log(newTraining)
     fetch('https://customerrest.herokuapp.com/api/trainings', {
       method: 'POST',
       headers: {
         'Content-type' : 'application/json'
       },
-      body: {
-        "Date": newTraining.date,
-        "Activity": newTraining.activity,
-        "Duration": newTraining.duration,
-        "Customer": "https://customerrest.herokuapp.com/api/customers/22"
-      }
+      body: JSON.stringify(newTraining)
     })
     .then(response => {
       if(response.ok)
