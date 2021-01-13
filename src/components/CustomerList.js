@@ -12,6 +12,7 @@ import 'ag-grid-community/dist/styles/ag-theme-material.css';
 import AddCustomer from './AddCustomer';
 import EditCustomer from './EditCustomer';
 import AddTraining from './AddTraining';
+
 import { Typography } from '@material-ui/core';
 
 function CustomerList() {
