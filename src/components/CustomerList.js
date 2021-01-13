@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../App.css';
 import { AgGridReact } from 'ag-grid-react';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -11,6 +12,7 @@ import 'ag-grid-community/dist/styles/ag-theme-material.css';
 import AddCustomer from './AddCustomer';
 import EditCustomer from './EditCustomer';
 import AddTraining from './AddTraining';
+import { Typography } from '@material-ui/core';
 
 function CustomerList() {
   const [customers, setCustomers] = useState([]);
@@ -18,10 +20,19 @@ function CustomerList() {
 
   useEffect(() => {
     getCustomers();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  function handleErrors(response) {
+    if(!response.ok) {
+      throw new Error(response.status);
+     }
+    return response;
+  }
 
   const getCustomers = () => {
     fetch('https://customerrest.herokuapp.com/api/customers')
+    .then(handleErrors)
     .then(response => response.json())
     .then(data => setCustomers(data.content))
     .catch(err => console.error(err))
@@ -66,7 +77,7 @@ function CustomerList() {
   }
 
   const addTraining = (newTraining) => {
-    console.log(newTraining)
+    //console.log(newTraining)
     fetch('https://customerrest.herokuapp.com/api/trainings', {
       method: 'POST',
       headers: {
@@ -127,6 +138,9 @@ function CustomerList() {
   return(
       <div>
         <div className="ag-theme-material" style={{ height: 700, width: '80%', margin: 'auto' }}>
+          <Typography color="primary">
+          <h1>Customers</h1>
+          </Typography>
         <AddCustomer addCustomer={addCustomer}/>
           <AgGridReact
             rowData={customers}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../App.css';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -33,7 +34,7 @@ function EditCustomer(props) {
       email: props.params.data.email,
       phone: props.params.data.phone
     })
-    console.log(props.params);
+    //console.log(props.params);
     setOpen(true);
   };
 

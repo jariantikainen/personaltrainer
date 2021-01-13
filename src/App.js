@@ -1,37 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import CustomerList from './components/CustomerList';
-import TrainingList from './components/TrainingList';
-import { AppBar, Box, Tab, Tabs, Toolbar, Typography } from '@material-ui/core';
-import GroupIcon from '@material-ui/icons/Group';
-import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+import PersonalTrainer from './components/PersonalTrainer';
+//import CustomerList from './components/CustomerList';
+//import TrainingList from './components/TrainingList';
+//import CalendarView from './components/CalendarView'
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 function App() {
-  const [value, setValue] = useState('1');
-
-  const handleTabChange= (event, value) => {
-    setValue(value);
-  };
+/*  const NoMatchPage = () => (
+    <div>
+      <h1>NoMatch</h1>
+    </div>
+  ) */
 
   return (
-    <div className="App">
-      <AppBar position="static">
-        <Box display="flex">
-          <Toolbar>
-            <Typography variant="h6">
-              Personal Trainer
-            </Typography>
-          </Toolbar>
-          <Tabs value={value} onChange={handleTabChange}>
-            <Tab value="1" label={<><GroupIcon /> Customers</>} />
-            <Tab value="2" label={<><DirectionsRunIcon /> Trainings</>} />
-          </Tabs>
-        </Box>
-      </AppBar>
-      { value === '1' && <CustomerList /> }
-      { value === '2' && <TrainingList /> }
-    </div>
-  );
+    <BrowserRouter>
+      <Switch>
+        <Redirect exact from="/" to="/personaltrainer/customers" />
+          <Route
+            exact
+            path="/personaltrainer/:page?"
+            render={(props) => <PersonalTrainer {...props} />}
+          />
+         <Route path="*" component={()=>(<div>NoMatch</div>)} />
+    </Switch>
+  </BrowserRouter>
+  ); 
 }
 
 export default App;

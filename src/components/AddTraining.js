@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../App.css';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -10,6 +11,10 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import AddIcon from '@material-ui/icons/Add';
 
+import moment from 'moment';
+import MomentUtils from "@date-io/moment";
+import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
+
 function AddTraining(props) {
   const [open, setOpen] = React.useState(false);
   const [training, setTraining] = useState({
@@ -20,7 +25,7 @@ function AddTraining(props) {
   })
 
   const handleClickOpen = () => {
-    console.log(props);
+    //console.log(props);
     setTraining({
       date: props.params.data.date,
       activity: props.params.data.activity,
@@ -35,7 +40,7 @@ function AddTraining(props) {
   };
 
   const handleSave = () => {
-    console.log(training);
+    //console.log(training);
     props.addTraining(training);
     handleClose();
   };
@@ -43,6 +48,10 @@ function AddTraining(props) {
   const inputChanged = (event) => {
     setTraining({...training, [event.target.name]: event.target.value});
   }
+
+  const handleDateChange = (date) => {
+    setTraining({...training, date: date});
+  };
 
   return(
     <div>
@@ -52,17 +61,22 @@ function AddTraining(props) {
         </IconButton>
       </Tooltip>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Add Training {training.customer}</DialogTitle>
+        <DialogTitle>Add Training ({props.params.data.firstname} {props.params.data.lastname})</DialogTitle>
         <DialogContent>
-          <TextField
-            margin="dense"
-            type="datetime-local"
-            label="Date"
-            name="date"
-            value={training.date}
-            onChange={inputChanged}
-            fullWidth
-          />
+        <MuiPickersUtilsProvider utils={MomentUtils}>
+        <DateTimePicker
+          label="Date" 
+          ampm={false}
+          variant="dialog"
+          clearable
+          value={training.date}
+          placeholder="Date"
+          onChange={date => handleDateChange(moment(date).toISOString())}
+          minDateTime={new Date()}
+          format="DD/MM/YYYY HH.mm"
+          showTodayButton
+        />
+      </MuiPickersUtilsProvider>
           <TextField
             margin="dense"
             label="Activity"
@@ -73,7 +87,7 @@ function AddTraining(props) {
           />
           <TextField
             margin="dense"
-            label="Duration (min)"
+            label="Duration (minutes)"
             name="duration"
             value={training.duration}
             onChange={inputChanged}
