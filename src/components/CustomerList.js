@@ -135,7 +135,7 @@ function CustomerList() {
     
   return(
       <div>
-        <div className="ag-theme-material" style={{ height: 650, width: '80%', margin: 'auto' }}>
+        <div className="ag-theme-material" style={{ height: 700, width: '80%', margin: 'auto' }}>
           <Typography color="primary">
           <h1>Customers</h1>
           </Typography>
