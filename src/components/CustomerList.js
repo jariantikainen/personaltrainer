@@ -5,14 +5,11 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import Snackbar from '@material-ui/core/Snackbar';
 import DeleteIcon from '@material-ui/icons/Delete';
-
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
-
 import AddCustomer from './AddCustomer';
 import EditCustomer from './EditCustomer';
 import AddTraining from './AddTraining';
-
 import { Typography } from '@material-ui/core';
 
 function CustomerList() {
@@ -40,7 +37,7 @@ function CustomerList() {
   }
 
   const deleteCustomer = (params) => {
-    if(window.confirm("Are you sure you want to delete customer?")) {
+    if(window.confirm("Are you sure you want to delete customer data?")) {
       fetch(params.value, {
         method: 'DELETE'
       })
@@ -104,11 +101,11 @@ function CustomerList() {
   const columns = [
     {headerName: 'First Name', field: 'firstname', sortable: true, filter: true, floatingFilter: true, resizable: true},
     {headerName: 'Last Name', field: 'lastname', sortable: true, filter: true, floatingFilter: true, resizable: true},
+    {headerName: 'Email Address', field: 'email', sortable: true, filter: true, floatingFilter: true, resizable: true},
+    {headerName: 'Phone Number', field: 'phone', sortable: true, filter: true, floatingFilter: true, resizable: true},
     {headerName: 'Street Address', field: 'streetaddress', sortable: true, filter: true, floatingFilter: true, resizable: true},
     {headerName: 'Postal Code', field: 'postcode', sortable: true, filter: true, floatingFilter: true, resizable: true},
     {headerName: 'City', field: 'city', sortable: true, filter: true, floatingFilter: true, resizable: true},
-    {headerName: 'Email Address', field: 'email', sortable: true, filter: true, floatingFilter: true, resizable: true},
-    {headerName: 'Phone Number', field: 'phone', sortable: true, filter: true, floatingFilter: true, resizable: true},
     {
       headerName: 'Add Training',
       field: 'links.0.href',
@@ -138,7 +135,7 @@ function CustomerList() {
     
   return(
       <div>
-        <div className="ag-theme-material" style={{ height: 700, width: '80%', margin: 'auto' }}>
+        <div className="ag-theme-material" style={{ height: 650, width: '80%', margin: 'auto' }}>
           <Typography color="primary">
           <h1>Customers</h1>
           </Typography>

@@ -6,10 +6,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Snackbar from '@material-ui/core/Snackbar';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Typography } from '@material-ui/core';
-
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
-
 import EditTraining from './EditTraining';
 import moment from 'moment';
 
@@ -29,7 +27,7 @@ function TrainingList() {
   }
 
   const deleteTraining = (params) => {
-    if(window.confirm("Are you sure you want to delete training?")) {
+    if(window.confirm("Are you sure you want to delete this training?")) {
       fetch('https://customerrest.herokuapp.com/api/trainings/' + params.value, {
         method: 'DELETE'
       })
@@ -61,7 +59,7 @@ function TrainingList() {
   }
 
   function dateFormatter(params) {
-    return moment(params.value).format('DD/MM/YYYY HH.mm');
+    return moment(params.value).format('DD/MM/YYYY HH:mm');
   }
 
   const columns = [
@@ -92,7 +90,7 @@ function TrainingList() {
     
   return(
     <div>
-        <div className="ag-theme-material" style={{ height: 700, width: '80%', margin: 'auto' }}>
+        <div className="ag-theme-material" style={{ height: 650, width: '80%', margin: 'auto' }}>
           <Typography color="primary">
           <h1>Trainings</h1>
           </Typography>

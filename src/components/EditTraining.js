@@ -9,7 +9,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import EditIcon from '@material-ui/icons/Edit';
-
 import moment from 'moment';
 import MomentUtils from "@date-io/moment";
 import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
@@ -70,7 +69,7 @@ function EditTraining(props) {
           placeholder="Date"
           onChange={date => handleDateChange(moment(date).toISOString())}
           //minDateTime={new Date()}
-          format="DD/MM/YYYY HH.mm"
+          format="DD/MM/YYYY HH:mm"
           showTodayButton
         />
       </MuiPickersUtilsProvider>

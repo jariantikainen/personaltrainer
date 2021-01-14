@@ -1,18 +1,9 @@
 import React from 'react';
 import './App.css';
 import PersonalTrainer from './components/PersonalTrainer';
-//import CustomerList from './components/CustomerList';
-//import TrainingList from './components/TrainingList';
-//import CalendarView from './components/CalendarView'
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 function App() {
-/*  const NoMatchPage = () => (
-    <div>
-      <h1>NoMatch</h1>
-    </div>
-  ) */
-
   return (
     <BrowserRouter>
       <Switch>
@@ -22,7 +13,7 @@ function App() {
             path="/personaltrainer/:page?"
             render={(props) => <PersonalTrainer {...props} />}
           />
-         <Route path="*" component={()=>(<div>NoMatch</div>)} />
+         <Route path="*" component={()=>(<div>PAGE NOT FOUND</div>)} />
     </Switch>
   </BrowserRouter>
   ); 

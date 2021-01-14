@@ -66,6 +66,22 @@ function AddCustomer(props) {
           />
           <TextField
             margin="dense"
+            label="Email Address"
+            name="email"
+            value={customer.email}
+            onChange={inputChanged}
+            fullWidth
+          />
+          <TextField
+            margin="dense"
+            label="Phone Number"
+            name="phone"
+            value={customer.phone}
+            onChange={inputChanged}
+            fullWidth
+          />
+          <TextField
+            margin="dense"
             label="Street Address"
             name="streetaddress"
             value={customer.streetaddress}
@@ -85,22 +101,6 @@ function AddCustomer(props) {
             label="City"
             name="city"
             value={customer.city}
-            onChange={inputChanged}
-            fullWidth
-          />
-          <TextField
-            margin="dense"
-            label="Email Address"
-            name="email"
-            value={customer.email}
-            onChange={inputChanged}
-            fullWidth
-          />
-          <TextField
-            margin="dense"
-            label="Phone Number"
-            name="phone"
-            value={customer.phone}
             onChange={inputChanged}
             fullWidth
           />

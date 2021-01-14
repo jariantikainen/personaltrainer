@@ -4,7 +4,6 @@ import { AppBar, Box, Tab, Tabs, Toolbar, Typography } from '@material-ui/core';
 import CustomerList from "./CustomerList";
 import TrainingList from "./TrainingList";
 import CalendarView from './CalendarView';
-
 import GroupIcon from '@material-ui/icons/Group';
 import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
