@@ -1,5 +1,5 @@
 # PersonalTrainer Front-end
-Task 3
+
 
 # Getting Started with Create React App
 
