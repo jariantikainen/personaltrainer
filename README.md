@@ -1,4 +1,4 @@
-# PersonalTrainer Front-end
+# Personal Trainer Front-End
 
 
 # Getting Started with Create React App
